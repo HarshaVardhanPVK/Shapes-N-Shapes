@@ -10,7 +10,7 @@ class Home extends React.Component
       super(props)
       this.state = {
         shapes: ["fa-circle-o", "fa-circle", "fa-square", "fa-square-o", "fa-diamond", "fa-plus-square", "fa-heart", "fa-arrow-up", "fa-arrow-left", "fa-arrow-down", "fa-arrow-right", "fa-caret-up"],
-        colors: ["red", "yellow", "gray", "blue", "green", "black", "brown", "violet", "olive", "orange"],
+        colors: ["red", "gray", "blue", "green", "black", "brown", "violet", "olive", "orange"],
         lifes: [true, true, true],
         score: 0,
         level: 1,
@@ -25,8 +25,6 @@ class Home extends React.Component
     $(".rightPanel").height($(window).height() - 40);
 
     $(".inner").css({"top": $(".outer").outerHeight()  });
-
-    //this.changeLevel();
     $("#landingModal").modal('show')
 
   }
@@ -43,12 +41,11 @@ class Home extends React.Component
     this.setState({lifes: [true, true, true], score: 0});
     var center = Math.floor($(".outer").outerWidth()/2);
 
-    //to stop running animation.
+    // to stop running animation.
     $(".inner").stop();
     $(".inner").height((self.state.level * 500) + 1000);
     $(".inner").css({"top": $(".outer").outerHeight()  });
 
-    //alert($(".outer").outerWidth() - 300)
     var innerHtml = "", elementArray = [];
     for(var i=0; i< (self.state.level * 5) + 10; i++) {
       var shape = Math.floor(Math.random() * this.state.shapes.length);
@@ -56,7 +53,7 @@ class Home extends React.Component
 
       var ele = shape+"_"+color;
 
-      // to removing repeated elements
+      // to remove repeated elements.
       if(elementArray.indexOf(ele) != "-1") {
         i--;
       }
@@ -65,14 +62,13 @@ class Home extends React.Component
         var left =  (center * (i%2))+Math.floor(Math.random() * center);
         if(left > (center*2)-120 )
         left -= 120;
-        //console.log(i+" left "+left)
 
         var top = 100*i;
         innerHtml += "<div class='fa "+ this.state.shapes[shape] +" clickableElement' id='"+ele+"' aria-hidden='true' style='font-size: 80px; color: "+ this.state.colors[color] +"; top: "+top+"px; left: "+left+"px; position: absolute' ></div>";
       }
     }
 
-    console.log("elementArray: "+elementArray);
+    // to Change shapes in left floating Panel.
     $("#scrollingDiv").html(innerHtml);
     this.changeTasks(elementArray)
 
@@ -103,6 +99,7 @@ class Home extends React.Component
       innerHtml += "<div style='width: 100%; height: 2px; background-color: lightgray; margin: 10px 0px'></div>";
     })
 
+    // adding task combinations in Right Panel.
     $(".rightPanel").html(innerHtml);
 
     this.addEvent();
@@ -111,6 +108,7 @@ class Home extends React.Component
 
   addEvent() {
     var firstElement = -1, self = this;
+    // adding mouse down event to select elements.
     $(".clickableElement").mousedown(function(){
       if($(this).hasClass("clickableElement")) {
         var id = $(this).attr('id');
@@ -125,7 +123,6 @@ class Home extends React.Component
           if(firstElement != -1) {
             $(this).addClass("activeElement");
             $(this).removeClass("clickableElement");
-            //	$("#"+id+"_task").addClass("clickedElement");
           }
           else {
             $(".activeElement").addClass("clickableElement");
@@ -184,17 +181,17 @@ class Home extends React.Component
       }
     });
 
-    //if(!self.state.loaded) {
-      //self.setState({loaded: true})
-      setTimeout(function(){
-        autoScroll();
-      }, 300);
-    //}
+    // calling autoScroll function to flow left planel.
+    setTimeout(function(){
+      autoScroll();
+    }, 300);
+
+    // calculating Level time based on Level.
     time = 65 - (self.state.level * 5);
     self.setState({time: time});
-    //self.timeCountDown();
   }
 
+  // Function to get elements from array with out reputation.
   randomNoRepeats(array) {
     var copy = array.slice(0);
     return function() {
@@ -206,9 +203,8 @@ class Home extends React.Component
     };
   }
 
-
+  // Function used to decrease Level Timer.
   timeCountDown() {
-
     var self = this;
     setInterval(function(){
       if(self.state.time > 0) {
@@ -216,11 +212,7 @@ class Home extends React.Component
         self.setState({time: time});
       }
       else {
-      //  clearInterval(refreshInterval);
         $("#levelModal").modal('show');
-        // self.setState({level: ++self.state.level},() => {
-        //   self.changeLevel();
-        // });
       }
     }, 1000);
   }
