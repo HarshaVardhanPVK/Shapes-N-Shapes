@@ -27973,28 +27973,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var stopGame = false,
-	    taskArray = [],
-	    time = 0,
-	    level = 1;
-	function autoScroll() {
-
-	  if (time > 10) {
-	    var top = parseInt($(".inner").css("top").replace("px", ""));
-	    var height = $(".outer").outerHeight();
-	    var innerHeight = $(".inner").outerHeight();
-	    //console.log("autoScroll: "+innerHeight)
-	    //console.log(top, height)
-
-	    if (top >= height) {
-	      $(".inner").animate({ "top": -innerHeight }, (65 - level * 5) * 1000 / 3, autoScroll);
-	    } else {
-	      $(".inner").css({ "top": height });
-	      autoScroll();
-	    }
-	  }
-	}
-
 	var Home = function (_React$Component) {
 	  _inherits(Home, _React$Component);
 
@@ -28109,7 +28087,7 @@
 	    value: function addEvent() {
 	      var firstElement = -1,
 	          self = this;
-	      $(".clickableElement").click(function () {
+	      $(".clickableElement").mousedown(function () {
 	        if ($(this).hasClass("clickableElement")) {
 	          var id = $(this).attr('id');
 
@@ -28134,7 +28112,6 @@
 	                if (life) lifeCount++;
 	              });
 	              if (lifeCount == 1) {
-	                stopGame = true;
 	                $("#levelModal").modal('show');
 	              }
 
@@ -28154,7 +28131,6 @@
 
 	              $(".activeElement").removeClass("activeElement");
 	              if (self.state.score == 8) {
-	                stopGame = true;
 	                $("#levelModal").modal('show');
 	              }
 	              self.setState({ score: self.state.score + 2 });
@@ -28167,7 +28143,6 @@
 	                if (life) lifeCount++;
 	              });
 	              if (lifeCount == 1) {
-	                stopGame = true;
 	                $("#levelModal").modal('show');
 	              }
 
@@ -28372,7 +28347,7 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
-	                    this.state.score >= 4 ? this.state.level == 5 ? _react2.default.createElement(
+	                    this.state.score >= 6 ? this.state.level == 5 ? _react2.default.createElement(
 	                      'span',
 	                      { className: 'modalText' },
 	                      'Game Finished'
@@ -28399,7 +28374,7 @@
 	                        'Replay'
 	                      )
 	                    ),
-	                    this.state.score >= 4 && this.state.level != 5 ? _react2.default.createElement(
+	                    this.state.score >= 6 && this.state.level != 5 ? _react2.default.createElement(
 	                      'div',
 	                      { className: 'col-md-6 modalOptions' },
 	                      _react2.default.createElement('i', { className: 'fa fa-arrow-right modalButton', onClick: this.nextLevel.bind(this), 'aria-hidden': 'true' }),

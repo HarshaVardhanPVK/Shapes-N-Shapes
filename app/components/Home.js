@@ -1,25 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'react-router';
 
-var stopGame = false, taskArray = [], time = 0, level = 1;
-function autoScroll(){
-
-  if(time>10) {
-    var top = parseInt($(".inner").css("top").replace("px",""));
-    var height = $(".outer").outerHeight();
-    var innerHeight = $(".inner").outerHeight();
-    //console.log("autoScroll: "+innerHeight)
-    //console.log(top, height)
-
-    if(top >=  height) {
-      $(".inner").animate({"top": -innerHeight}, ((65 - (level * 5)) * 1000)/3, autoScroll)
-    }
-    else {
-      $(".inner").css({"top": height});
-      autoScroll();
-    }
-  }
-}
 
 class Home extends React.Component
 {
@@ -129,7 +110,7 @@ class Home extends React.Component
 
   addEvent() {
     var firstElement = -1, self = this;
-    $(".clickableElement").click(function(){
+    $(".clickableElement").mousedown(function(){
       if($(this).hasClass("clickableElement")) {
         var id = $(this).attr('id');
 
@@ -155,7 +136,6 @@ class Home extends React.Component
                 lifeCount++;
             })
             if(lifeCount == 1) {
-              stopGame = true
               $("#levelModal").modal('show');
             }
 
@@ -177,7 +157,6 @@ class Home extends React.Component
 
             $(".activeElement").removeClass("activeElement");
             if(self.state.score == 8) {
-              stopGame = true;
               $("#levelModal").modal('show');
             }
             self.setState({score: self.state.score + 2});
@@ -191,7 +170,6 @@ class Home extends React.Component
                 lifeCount++;
             })
             if(lifeCount == 1) {
-              stopGame = true;
               $("#levelModal").modal('show');
             }
 
@@ -320,7 +298,7 @@ class Home extends React.Component
                   <span className="modalTitle">Level {this.state.level}</span>
                   <div className="row" style={{marginTop: "40px", marginBottom: "10px"}}>
                     {
-                      (this.state.score >= 4)?
+                      (this.state.score >= 6)?
                       (
                         (this.state.level == 5)?(
                             <span className="modalText">Game Finished</span>
@@ -337,7 +315,7 @@ class Home extends React.Component
                       <i className="fa fa-refresh modalButton" onClick={this.restartLevel.bind(this)} aria-hidden="true"></i>
                       <h3>Replay</h3>
                     </div>
-                    {(this.state.score >= 4 && this.state.level != 5)?
+                    {(this.state.score >= 6 && this.state.level != 5)?
                       (
                         <div className="col-md-6 modalOptions">
                           <i className="fa fa-arrow-right modalButton" onClick={this.nextLevel.bind(this)} aria-hidden="true"></i>
