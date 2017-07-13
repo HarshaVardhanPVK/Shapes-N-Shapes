@@ -60,7 +60,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reactTapEventPlugin = __webpack_require__(250);
+	var _reactTapEventPlugin = __webpack_require__(252);
 
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 
@@ -27965,6 +27965,14 @@
 
 	var _reactRouter = __webpack_require__(184);
 
+	var _SignUpModal = __webpack_require__(250);
+
+	var _SignUpModal2 = _interopRequireDefault(_SignUpModal);
+
+	var _LevelModal = __webpack_require__(251);
+
+	var _LevelModal2 = _interopRequireDefault(_LevelModal);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28237,168 +28245,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'container-fluid' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'modal fade', id: 'landingModal', 'data-backdrop': 'static', role: 'dialog' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'modal-dialog' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'modal-content' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'modal-body' },
-	                _react2.default.createElement(
-	                  'center',
-	                  null,
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'modalTitle' },
-	                    'Shapes&Shapes'
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'row', style: { marginTop: "40px", marginBottom: "10px", textAlign: "left", fontSize: "15px" } },
-	                    _react2.default.createElement(
-	                      'ul',
-	                      null,
-	                      _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        'In this Game we will have 5 combinations in each Level.'
-	                      ),
-	                      _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        'To complete a Level we have to clear min 2 Combinations.'
-	                      ),
-	                      _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        'Time limit will be decreased Level to Level.'
-	                      ),
-	                      _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        'Number of Shapes and speed of flowing(left) view will increases level by level to make game tough.'
-	                      ),
-	                      _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        'Each Level have 3 lifes and will be decreased by 1 while clicking on wrong combination.'
-	                      ),
-	                      _react2.default.createElement(
-	                        'li',
-	                        null,
-	                        'This Game contains max of 5 Levels.'
-	                      )
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
-	                    _react2.default.createElement(
-	                      'span',
-	                      { className: 'modalText' },
-	                      'Happy Gaming'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
-	                    _react2.default.createElement(
-	                      'div',
-	                      { className: 'col-md-12' },
-	                      _react2.default.createElement('i', { className: 'fa fa-power-off modalButton', onClick: this.gameInitialStarting.bind(this), 'aria-hidden': 'true' }),
-	                      _react2.default.createElement(
-	                        'h3',
-	                        null,
-	                        'Start'
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'modal fade', id: 'levelModal', 'data-backdrop': 'static', role: 'dialog' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'modal-dialog' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'modal-content' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'modal-body' },
-	                _react2.default.createElement(
-	                  'center',
-	                  null,
-	                  _react2.default.createElement(
-	                    'span',
-	                    { className: 'modalTitle' },
-	                    'Level ',
-	                    this.state.level
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
-	                    this.state.score >= 6 ? this.state.level == 5 ? _react2.default.createElement(
-	                      'span',
-	                      { className: 'modalText' },
-	                      'Game Finished'
-	                    ) : _react2.default.createElement(
-	                      'span',
-	                      { className: 'modalText' },
-	                      'Level Cleared'
-	                    ) : _react2.default.createElement(
-	                      'span',
-	                      { className: 'modalText' },
-	                      'Level Failed'
-	                    )
-	                  ),
-	                  _react2.default.createElement(
-	                    'div',
-	                    { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
-	                    _react2.default.createElement(
-	                      'div',
-	                      { className: 'col-md-6' },
-	                      _react2.default.createElement('i', { className: 'fa fa-refresh modalButton', onClick: this.restartLevel.bind(this), 'aria-hidden': 'true' }),
-	                      _react2.default.createElement(
-	                        'h3',
-	                        null,
-	                        'Replay'
-	                      )
-	                    ),
-	                    this.state.score >= 6 && this.state.level != 5 ? _react2.default.createElement(
-	                      'div',
-	                      { className: 'col-md-6 modalOptions' },
-	                      _react2.default.createElement('i', { className: 'fa fa-arrow-right modalButton', onClick: this.nextLevel.bind(this), 'aria-hidden': 'true' }),
-	                      _react2.default.createElement(
-	                        'h3',
-	                        null,
-	                        'Next'
-	                      )
-	                    ) : _react2.default.createElement(
-	                      'div',
-	                      { className: 'col-md-6' },
-	                      _react2.default.createElement('i', { className: 'fa fa-power-off modalButton', onClick: this.startGame.bind(this), 'aria-hidden': 'true' }),
-	                      _react2.default.createElement(
-	                        'h3',
-	                        null,
-	                        'Start'
-	                      )
-	                    )
-	                  )
-	                )
-	              )
-	            )
-	          )
-	        ),
+	        _react2.default.createElement(_SignUpModal2.default, { gameInitialStarting: this.gameInitialStarting.bind(this) }),
+	        _react2.default.createElement(_LevelModal2.default, { score: this.state.score, level: this.state.level, nextLevel: this.nextLevel.bind(this), restartLevel: this.restartLevel.bind(this), startGame: this.startGame.bind(this) }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'row', id: 'scoreCard', style: { backgroundColor: 'black', color: 'white', height: 30, fontSize: 20 } },
@@ -28477,8 +28325,272 @@
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(184);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var SignUpModal = function (_React$Component) {
+	  _inherits(SignUpModal, _React$Component);
+
+	  function SignUpModal(props) {
+	    _classCallCheck(this, SignUpModal);
+
+	    var _this = _possibleConstructorReturn(this, (SignUpModal.__proto__ || Object.getPrototypeOf(SignUpModal)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(SignUpModal, [{
+	    key: 'render',
+	    value: function render() {
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'modal fade', id: 'landingModal', 'data-backdrop': 'static', role: 'dialog' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'modal-dialog' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'modal-content' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'modal-body' },
+	              _react2.default.createElement(
+	                'center',
+	                null,
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'modalTitle' },
+	                  'Shapes-N-Shapes'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row', style: { marginTop: "40px", marginBottom: "10px", textAlign: "left", fontSize: "15px" } },
+	                  _react2.default.createElement(
+	                    'ul',
+	                    null,
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      'In this Game we will have 5 combinations in each Level.'
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      'To complete a Level we have to clear min 2 Combinations.'
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      'Time limit will be decreased Level to Level.'
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      'Number of Shapes and speed of flowing(left) view will increases level by level to make game tough.'
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      'Each Level have 3 lifes and will be decreased by 1 while clicking on wrong combination.'
+	                    ),
+	                    _react2.default.createElement(
+	                      'li',
+	                      null,
+	                      'This Game contains max of 5 Levels.'
+	                    )
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'modalText' },
+	                    'Happy Gaming'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-12' },
+	                    _react2.default.createElement('i', { className: 'fa fa-power-off modalButton', onClick: this.props.gameInitialStarting.bind(this), 'aria-hidden': 'true' }),
+	                    _react2.default.createElement(
+	                      'h3',
+	                      null,
+	                      'Start'
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return SignUpModal;
+	}(_react2.default.Component);
+
+	SignUpModal.contextTypes = { history: _reactRouter.PropTypes.history };
+	exports.default = SignUpModal;
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(184);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LevelModal = function (_React$Component) {
+	  _inherits(LevelModal, _React$Component);
+
+	  function LevelModal(props) {
+	    _classCallCheck(this, LevelModal);
+
+	    var _this = _possibleConstructorReturn(this, (LevelModal.__proto__ || Object.getPrototypeOf(LevelModal)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(LevelModal, [{
+	    key: 'render',
+	    value: function render() {
+
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'modal fade', id: 'levelModal', 'data-backdrop': 'static', role: 'dialog' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'modal-dialog' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'modal-content' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'modal-body' },
+	              _react2.default.createElement(
+	                'center',
+	                null,
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'modalTitle' },
+	                  'Level ',
+	                  this.props.level
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
+	                  this.props.score >= 6 ? this.props.level == 5 ? _react2.default.createElement(
+	                    'span',
+	                    { className: 'modalText' },
+	                    'Game Finished'
+	                  ) : _react2.default.createElement(
+	                    'span',
+	                    { className: 'modalText' },
+	                    'Level Cleared'
+	                  ) : _react2.default.createElement(
+	                    'span',
+	                    { className: 'modalText' },
+	                    'Level Failed'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'row', style: { marginTop: "40px", marginBottom: "10px" } },
+	                  _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-6' },
+	                    _react2.default.createElement('i', { className: 'fa fa-refresh modalButton', onClick: this.props.restartLevel.bind(this), 'aria-hidden': 'true' }),
+	                    _react2.default.createElement(
+	                      'h3',
+	                      null,
+	                      'Replay'
+	                    )
+	                  ),
+	                  this.props.score >= 6 && this.props.level != 5 ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-6 modalOptions' },
+	                    _react2.default.createElement('i', { className: 'fa fa-arrow-right modalButton', onClick: this.props.nextLevel.bind(this), 'aria-hidden': 'true' }),
+	                    _react2.default.createElement(
+	                      'h3',
+	                      null,
+	                      'Next'
+	                    )
+	                  ) : _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-md-6' },
+	                    _react2.default.createElement('i', { className: 'fa fa-power-off modalButton', onClick: this.props.startGame.bind(this), 'aria-hidden': 'true' }),
+	                    _react2.default.createElement(
+	                      'h3',
+	                      null,
+	                      'Start'
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return LevelModal;
+	}(_react2.default.Component);
+
+	LevelModal.contextTypes = { history: _reactRouter.PropTypes.history };
+	exports.default = LevelModal;
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
 	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(12);
-	var defaultClickRejectionStrategy = __webpack_require__(251);
+	var defaultClickRejectionStrategy = __webpack_require__(253);
 
 	var alreadyInjected = false;
 
@@ -28500,14 +28612,14 @@
 	  alreadyInjected = true;
 
 	  __webpack_require__(47).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(252)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(254)(shouldRejectClick)
 	  });
 	};
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 251 */
+/* 253 */
 /***/ (function(module, exports) {
 
 	module.exports = function(lastTouchEvent, clickTimestamp) {
@@ -28518,7 +28630,7 @@
 
 
 /***/ }),
-/* 252 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -28542,14 +28654,14 @@
 
 	"use strict";
 
-	var EventConstants = __webpack_require__(253);
+	var EventConstants = __webpack_require__(255);
 	var EventPluginUtils = __webpack_require__(49);
 	var EventPropagators = __webpack_require__(46);
 	var SyntheticUIEvent = __webpack_require__(81);
-	var TouchEventUtils = __webpack_require__(254);
+	var TouchEventUtils = __webpack_require__(256);
 	var ViewportMetrics = __webpack_require__(82);
 
-	var keyOf = __webpack_require__(255);
+	var keyOf = __webpack_require__(257);
 	var topLevelTypes = EventConstants.topLevelTypes;
 
 	var isStartish = EventPluginUtils.isStartish;
@@ -28695,7 +28807,7 @@
 
 
 /***/ }),
-/* 253 */
+/* 255 */
 /***/ (function(module, exports) {
 
 	/**
@@ -28791,7 +28903,7 @@
 	module.exports = EventConstants;
 
 /***/ }),
-/* 254 */
+/* 256 */
 /***/ (function(module, exports) {
 
 	/**
@@ -28839,7 +28951,7 @@
 
 
 /***/ }),
-/* 255 */
+/* 257 */
 /***/ (function(module, exports) {
 
 	"use strict";

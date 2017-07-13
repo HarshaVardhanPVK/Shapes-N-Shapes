@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'react-router';
-
+import SignUpModal from './SignUpModal.js'
+import LevelModal from './LevelModal.js'
 
 class Home extends React.Component
 {
@@ -253,91 +254,9 @@ class Home extends React.Component
       <div className="container-fluid">
 
 
+      <SignUpModal gameInitialStarting={this.gameInitialStarting.bind(this)} />
 
-      <div className="modal fade" id="landingModal" data-backdrop="static" role="dialog">
-        <div className="modal-dialog">
-
-          <div className="modal-content">
-            <div className="modal-body">
-              <center>
-                <span className="modalTitle">Shapes&Shapes</span>
-                <div className="row" style={{marginTop: "40px", marginBottom: "10px", textAlign: "left", fontSize: "15px"}}>
-                  <ul>
-                    <li>In this Game we will have 5 combinations in each Level.</li>
-                    <li>To complete a Level we have to clear min 2 Combinations.</li>
-                    <li>Time limit will be decreased Level to Level.</li>
-                    <li>Number of Shapes and speed of flowing(left) view will increases level by level to make game tough.</li>
-                    <li>Each Level have 3 lifes and will be decreased by 1 while clicking on wrong combination.</li>
-                    <li>This Game contains max of 5 Levels.</li>
-                  </ul>
-                </div>
-                <div className="row" style={{marginTop: "40px", marginBottom: "10px"}}>
-                  <span className="modalText">Happy Gaming</span>
-                </div>
-                <div className="row" style={{marginTop: "40px", marginBottom: "10px"}}>
-                  <div className="col-md-12">
-                    <i className="fa fa-power-off modalButton" onClick={this.gameInitialStarting.bind(this)} aria-hidden="true"></i>
-                    <h3>Start</h3>
-                  </div>
-                </div>
-              </center>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-
-
-        <div className="modal fade" id="levelModal" data-backdrop="static" role="dialog">
-          <div className="modal-dialog">
-
-            <div className="modal-content">
-              <div className="modal-body">
-                <center>
-                  <span className="modalTitle">Level {this.state.level}</span>
-                  <div className="row" style={{marginTop: "40px", marginBottom: "10px"}}>
-                    {
-                      (this.state.score >= 6)?
-                      (
-                        (this.state.level == 5)?(
-                            <span className="modalText">Game Finished</span>
-                        ):(
-                          <span className="modalText">Level Cleared</span>
-                        )
-                      ):(
-                        <span className="modalText">Level Failed</span>
-                      )
-                    }
-                  </div>
-                  <div className="row" style={{marginTop: "40px", marginBottom: "10px"}}>
-                    <div className="col-md-6">
-                      <i className="fa fa-refresh modalButton" onClick={this.restartLevel.bind(this)} aria-hidden="true"></i>
-                      <h3>Replay</h3>
-                    </div>
-                    {(this.state.score >= 6 && this.state.level != 5)?
-                      (
-                        <div className="col-md-6 modalOptions">
-                          <i className="fa fa-arrow-right modalButton" onClick={this.nextLevel.bind(this)} aria-hidden="true"></i>
-                          <h3>Next</h3>
-                        </div>
-                      ):
-                      (
-                        <div className="col-md-6">
-                          <i className="fa fa-power-off modalButton" onClick={this.startGame.bind(this)} aria-hidden="true"></i>
-                          <h3>Start</h3>
-                        </div>
-                      )
-                    }
-
-                  </div>
-                </center>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+      <LevelModal score={this.state.score} level={this.state.level} nextLevel={this.nextLevel.bind(this)} restartLevel={this.restartLevel.bind(this)} startGame={this.startGame.bind(this)} />
 
 
         <div className="row" id="scoreCard" style={{backgroundColor: 'black', color: 'white', height: 30, fontSize: 20}}>
